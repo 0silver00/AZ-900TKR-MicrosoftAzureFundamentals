@@ -1,147 +1,159 @@
 ---
 wts:
-    title: '11 - Create a VM with the CLI'
-    module: 'Module 02 - Core Azure Services'
+    title: '11 - Azure CLI로 VM 만들기'
+    module: '모듈 02 - Azure 핵심 서비스'
 ---
-# 11 - Create a VM with the CLI
 
-In this walkthrough, we will install the Azure CLI locally, create a resource group and virtual machine, use the Cloud Shell, and review Azure Advisor recommendations. 
+# 11 - Azure CLI로 VM 만들기
 
-Estimated time: 35 minutes
+이 연습에서는 Azure CLI를 로컬 컴퓨터에 설치하고 리소스 그룹과 가상 머신을 만들고 Cloud Shell에서 Azure CLI를 사용해봅니다. 그리고 Azure Advisor 권장 사항을 확인합니다.
 
-**Note**: The following steps are based on a Windows installation, however they could equally be applicable to a Mac or Linux environment. However, there are [specific installation steps for each environment](https://docs.microsoft.com/cli/azure/install-azure-cli).
+실습 시간: 35 분
 
-# Task 1: Install the CLI locally
+**메모**: 다음 실습은 Windows 설치를 기반으로 하지만 Mac 또는 Linux 환경에서도 동일하게 적용 할 수 있습니다. <a href="https://docs.microsoft.com/cli/azure/install-azure-cli" target="_blank"><span style="color: #0066cc;" color="#0066cc">각 환경에 대한 특정 설치 단계</span></a>를 참고하세요.
 
-In this task, we will install the Azure CLI on your local machine. 
+# 실습 1: 로컬 컴퓨터에 Azure CLI 설치
 
-1. Download the [Azure CLI msi](https://aka.ms/installazurecliwindows) and in the browser, select **Run**. It will take a minute for the files to download.
+이 실습에서는 로컬 컴퓨터에 Azure CLI를 설치합니다.
 
-2. In the Microsoft Azure CLI Setup wizard, click the box **I accept the terms in the license agreement** and then click **Install**.
+1. <a href="https://aka.ms/installazurecliwindows" target="_blank"><span style="color: #0066cc;" color="#0066cc">Azure CLI msi</span></a>를 다운로드하고 실행합니다.
 
-3. In the **User Account Control** dialog, select **Yes** to indicate the app can make changes to your device. 
+2. Microsoft Azure CLI Setup 마법사에서 **I accept the terms in the license agreement** 체크박스에 체크를 하고 **Install**을 클릭합니다.
 
-4. Once the installation is complete select **Finish**.
+3. **사용자 컨트롤** 창이 뜨면 **예** 버튼을 클릭하여 Microsoft Azure CLI를 설치합니다.
 
-    **Note:** The Azure CLI is run by opening a Bash shell in the Linux or macOS, or it can be run from the command prompt or PowerShell app in Windows. 
+4. 설치가 완료되면 **Finish** 버튼을 클릭합니다.
 
-# Task 2: Create a resource group and a virtual machine
+    **메모**: Azure CLI는 Linux 또는 MacOS에서 Bash Shell을 열어 실행되거나 Windows의 명령 프롬프트 또는 PowerShell 앱에서 실행할 수 있습니다.
 
-1. On your local machine, open a **Command Prompt**. Be sure to **Run as administrator**. If prompted, confirm (Yes) the app can make changes to your device.
+# 실습 2: 리소스 그룹과 가상 머신 생성
 
-    **Note**: You can run the Azure CLI from a PowerShell session rather than from the Windows Command Prompt. Running the CLI from PowerShell has some advantages such as more tab completion features.
+1. 로컬 컴퓨터에서 **명령 프롬프트**를 실행합니다.
 
-2. Login to your Azure subscription. Select the account associated with your subscription and wait to be successfully logged in. 
+    **메모**: Windows 명령 프롬프트가 아닌 PowerShell 세션에서도 Azure CLI를 실행할 수 있습니다. PowerShell에서 CLI를 실행하면 더 많은 탭 완성 기능과 같은 몇 가지 장점이 있습니다.
 
-    ```azurecli
-    az login
-    ```
+    **메모**: Linux 또는 MacOS에서는 Bash Shell을 실행합니다.
 
-3. If you like, bookmark the [Azure CLI Documentation](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) page.
+2. 원하는 경우 <a href="https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest" target="_blank"><span style="color: #0066cc;" color="#0066cc">Azure CLI 설명서</span></a>를 즐겨찾기에 등록합니다.
 
-4. Verify your installation by running the version check command and ensuring it runs successfully. A warning message about being unable to check for the latest updates, is okay. 
+3. 다음 명령어를 실행하여 Azure CLI가 실행되는지와 버전을 확인합니다. Azure CLI가 정상적으로 설치되지 않으면 경고 메세지가 출력됩니다.
 
     ```cli
     az --version
     ```
 
-5. Create a new resource group.
+4. Azure CLI에서 Azure에 로그인합니다. 사용자 계정 로그인 창이 뜨면 Azure 로그인 자격 증명을 입력합니다. 로그인 완료 후 출력되는 구독 및 계정 정보를 확인합니다.
 
-    ```cli
-    az group create --name myRGCLI --location EastUS
+    ```azurecli
+    az login
     ```
 
-6. Verify the resource group was created.
+    **메모**: Azure 구독이 두개 이상인 경우 출력된 구독 및 계정 정보가 실습에 사용할 구독이 **아닐 수** 있습니다. 이련 경우 다음 명령어를 사용하여 명시적으로 구독을 선택해야 합니다.
+    
+    ```cli
+    az account set --subscription <구독 ID>
+    ```
+
+5. 새로운 리소스 그룹을 생성합니다.
+
+    ```cli
+    az group create --name myRGCLI --location SoutheastAsia
+    ```
+
+6. 리소스 그룹이 생성됐는지 확인합니다.
 
     ```cli
     az group list --output table
     ```
 
-7. Create a new virtual machine. This command must all be on one line. And, there should not be any tick (`) marks when it is all on one line. 
-
+7. 다음 명령어를 사용하여 가상 머신을 생성합니다. 이 명령어는 한줄로 입력되어야 합니다. 캐럿(^)은 한 줄로 이루어진 명령어를 보기 쉽게 줄바꿈을 할 때 사용합니다.
 
     ```cli
-    az vm create `
-        --name myVMCLI `
-        --resource-group myRGCLI `
-        --image UbuntuLTS `
-        --location EastUS `
-        --admin-username azureuser `
+    az vm create ^
+        --name myVMCLI ^
+        --resource-group myRGCLI ^
+        --image UbuntuLTS ^
+        --location SoutheastAsia ^
+        --admin-username azureuser ^
         --admin-password Pa$$w0rd1234
     ```
 
-    **Note**: The command will take 2 to 3 minutes to complete. The command will create a virtual machine and various resources associated with it such as storage, networking and security resources. Do not continue to the next step until the virtual machine deployment is complete. You can close the Azure Cloud Shell once it is complete.
+    **메모**: PowerShell 또는 Bash Shell에서는 한 줄로 이루어진 명령어를 보기 쉽게 줄바꿈을 할 경우 캐럿(^) 대신 그레이브(`)를 사용합니다.
 
+    **메모**: 명령을 완료하는 데 2-3 분이 걸립니다. 이 명령은 가상 머신, 스토리지, 네트워킹과 같은 가상 머신과 이와 연관된 다양한 리소스를 생성합니다. 가상 머신 배포가 완료 될 때까지 다음 단계로 넘어가지 마세요.
 
-8. When the command finishes running, sign in to the [Azure portal](https://portal.azure.com).
+8. <a href="https://portal.azure.com" target="_blank"><span style="color: #0066cc;" color="#0066cc">Azure Portal</span></a>에 로그인 합니다.
 
-9. Search for **Virtual machines** and verify that **myVMCLI** is running.
+9. 검색창에 **가상 머신**을 검색한 후 **myVMCLI**가 실행 중인지 확인합니다.
 
-    ![Screenshot of the virtual machines page with myVMPS in a running state.](../images/1101.png)
+    ![가상 머신 블레이드에서 myVMCLI의 상태가 실행 중인 스크린 샷](../images/1101.png)
 
-10. Close your local CLI session. 
+10. 로컬 컴퓨터에서 Azure CLI 세션을 닫습니다.
 
-# Task 3: Execute commmands in the Cloud Shell
+# 실습 3: Cloud Shell에서 명령 실행
 
-In this task, we will practice executing CLI commands from the Cloud Shell. 
+이 실습에서는 Cloud Shell에서 Azure CLI 명령어를 실행합니다.
 
-1. From the portal, open the **Azure Cloud Shell** by clicking on the *Azure Cloud Shell icon* in the top right of the Azure Portal.
+1. Azure Portal에서 오른쪽 상단에 있는 **>_** 아이콘을 클릭하여 **Azure Cloud Shell**을 실행합니다.
 
-    ![Screenshot of Azure Portal Azure Cloud Shell icon.](../images/1102.png)
+    ![Azure Portal에서 Azure Cloud Shell 아이콘이 강조된 스크린 샷](../images/1102.png)
 
-2. If you have previously used the Cloud Shell skip ahead to Step 5. 
+2. Cloud Shell을 이전에 사용했을 경우 4단계로 건너 뜁니다.
 
-3. When prompted to select either **Bash** or **PowerShell**, select **Bash**. 
+3. 메시지가 표시되면 구독에서 **실습에 이용할 구독**을 선택한 후 **스토리지 만들기**버튼을 클릭하여 Cloud Shell을 초기화 합니다.
 
-4. When prompted, **Create storage**, and allow the Azure Cloud Shell to initialize. 
+4. 왼쪽 상단 드롭 다운 메뉴에서 **Bash**가 선택되어 있는지 확인합니다. Bash 선택되어있지 않다면 드롭 다운 메뉴를 클릭하여 **Bash**로 수정하고 **Cloud Shell의 Bash로 전환**창이 뜨면 **확인** 버튼을 눌러 Bash로 변경합니다.
 
-5. Ensure **Bash** is selected in the upper-left drop-down menu.
-
-**Notice you will not need to login when using the shell.**
-
-6. Retrieve information about your virtual machine including name, resource group, location, and status. Notice the PowerState is **running**.
-
+    **메모**: Azure 구독이 두개 이상인 경우 다음 명령어를 사용하여 명시적으로 구독을 선택해야 합니다.
+    
     ```cli
-    az vm show --resource-group myRGCLI --name myVMCLI --show-details --output table 
+    az account set --subscription <구독 ID>
     ```
 
-7. Stop the virtual machine. Notice the message that billing continues until the virtual machine is deallocated. 
+**Cloud Shell을 사용할 때는 로그인을 할 필요가 없습니다.**
+
+6. 다음 명령어를 사용하여 가상 머신의 name, resource group, location, status를 확인합니다. PowerState는 **running**입니다.
+
+    ```cli
+    az vm show --resource-group myRGCLI --name myVMCLI --show-details --output table
+    ```
+
+7. 가상 머신을 중지합니다. 가상 머신의 할당이 해제가 될 때까지 청구가 계속된다는 메시지를 확인합니다.
 
     ```cli
     az vm stop --resource-group myRGCLI --name myVMCLI
     ```
 
-8. Verify your virtual machine status. The PowerState should now be **stopped**.
+8. 다음 명령어를 이용하여 가상 머신의 상태를 확인합니다. PowerState가 **stopped**로 되어있는지 확인합니다.
 
     ```cli
     az vm show --resource-group myRGCLI --name myVMCLI --show-details --output table 
     ```
 
-# Task 4: Review Azure Advisor Recommendations
+# 실습 4: Azure Advisor 권장 사항 검토
 
-In this task, we will review Azure Advisor recommendations. 
+**메모**: Azure PowerShell를 사용하여 VM 만들기에 동일한 작업이 있습니다.
 
-    **Note:** If you have done the previous lab (Create a VM with PowerShell) then you have already completed this task. 
+이 실습에서는 가상 머신에 대한 Azure Advisor 권장 사항을 검토합니다.
 
-1. From the portal, search for and select **Advisor**. 
+1. Azure Portal에서 **Advisor**를 검색합니다.
 
-2. In Advisor, select **Overview**. Notice recommendations are grouped by High Availability, Security, Performance, and Cost. 
+2. Advisor에서 **개요**를 선택합니다. 권장 사항은 고 가용성, 보안, 성능, 뛰어난 운영, 비용으로 그룹화됩니다.
 
-    ![Screenshot of the Advisor Overview page. ](../images/1103.png)
+    ![Advisor 개요 페이지 스크린 샷](../images/1103.png)
 
-3. Select **All recommendations** and take time to view each recommendation and suggested actions. 
+3. **모든 권장 사항**을 클릭하고 제안된 권장사항과 정보를 확인합니다.
 
-    **Note:** Depending on your resources, your recommendations will be different. 
+    **메모**: 리소스에 따라 권장 사항이 달라집니다. 
 
-    ![Screenshot of the Advisor All recommendations page. ](../images/1104.png)
+    ![Advisor 모든 권장 사항 스크린 샷](../images/1104.png)
 
-4. Notice that you can download the recommendations as a CSV or PDF file. 
+4. 권장 사항을 CSV 또는 PDF 파일로 다운로드 할 수 있습니다.
 
-5. Notice that you can create alerts. 
+5. 권장 사항을 알람으로 만들 수 있습니다.
 
-6. As you have time, continue to experiment with the Azure CLI.
+6. 시간이 있으면 Azure CLI을 좀 더 실습합니다.
 
-Congratulations! You have installed PowerShell on your local machine, created a virtual machine using PowerShell, practiced with PowerShell commands, and viewed Advisor recommendations.
+로컬 컴퓨터에 Azure CLI를 설치하고 Azure CLI을 사용하여 가상 머신를 만들었습니다. Azure CLI 명령어를 사용하여 가상 머신의 상태를 확인하는 연습을 한 다음 Advisor 권장 사항을 확인했습니다.
 
-**Note**: To avoid additional costs, you can remove this resource group. Search for resource groups, click your resource group, and then click **Delete resource group**. Verify the name of the resource group and then click **Delete**. Monitor the **Notifications** to see how the delete is proceeding.
-
+**메모**: 추가 비용을 피하기 위해 리소스 그룹을 제거할 수 있습니다. 리소스 그룹(myRGPS)을 검색하고 리소스 그룹 블레이드에서 **Delete resource group**을 클릭한 후 삭제 창에 리소스 그룹 이름 입력란에 리소스 그룹 이름(myRGPS)을 입력합니다. 리소스 그룹 이름을 정확히 입력하면 하단에 **삭제** 버튼이 활성화 되며 삭제 버튼을 클릭하여 생성한 리소스들을 삭제합니다. **알람**에서 모니터링 할 수 있습니다.

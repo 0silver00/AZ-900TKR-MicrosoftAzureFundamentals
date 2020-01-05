@@ -1,61 +1,61 @@
 ---
 wts:
-    title: '21 - Open a Support Request'
-    module: 'Module 04 - Azure Pricing and Support'
+    title: '21 - 지원 요청 열기'
+    module: '모듈 04 - Azure 과금과 지원'
 ---
-# 21 - Open a Support Request
 
+# 21 - 지원 요청 열기
 
-In this walkthrough, we will view available support plan options and then practice creating and monitoring a new support request.
+이 연습에서는 사용 가능한 지원 계획 옵션을 보고 새 지원 요청 작성과 모니터링을 연습합니다.
 
-Estimated time: 10 minutes
+실습 시간: 10 분
 
-# Task 1: View available support plan options and a technical support request
+# 실습 1: 사용 가능한 지원 계획 옵션과 기술 지원 요청 보기
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. <a href="https://portal.azure.com" target="_blank"><span style="color: #0066cc;" color="#0066cc">Azure Portal</span></a>에 로그인 합니다.
 
-2. Search for and select **Help + support**, then select **Support plans**.
+2. 검색창에 **도움말 + 지원**을 검색한 후 **지원 계획**을 선택합니다.
 
-3. Take a few minutes to review the different support plans. Notice what is included in the **Basic** plan. 
+3. 다른 지원 계획을 살펴봅니다. **기본** 계획에 무엇이 포함되어 있는지 확인합니다.
 
-4. Select **New support request**. The ticket is created based on the values you select as you go. 
+4. **새 지원 요청**을 선택하고 다음을 사용하여 티켓을 생성합니다.
 
-    | Setting | Value|
-    |----|--------|
-    | Issue Type| **Technical** |
-    | Subscription | **Choose your subscription** |
-    | Service | **All services**, **Virtual Machine running Linux** |
-    | Summary | **Disk access is very slow for large files.** |
-    | Problem type | **VM performance**, **Disk throughput is lower than expected**, **Save** |
+    | 설정 | 값 |
+    | --- | --- |
+    | 문제 유형 | **기술** |
+    | 구독 | **실습에 이용할 구독** |
+    | 서비스 | **모든 서비스**, **Virtual Machine running Linux** |
+    | 리소스 | **일반 질문** |
+    | 요약 | **Disk access is very slow for large files.** |
+    | 문제 유형 | **성능**, **디스크 처리량이 예상보다 낮음**, **저장** |
     | | |
 
-5. Click **Next: Solutions >>** and read through the recommended solutions.
+5. **다음: 솔루션 >>** 버튼을 클릭하여 권장 옵션을 확인합니다.
 
-6. Click **Next: Details >>**. When submitting a real support request you should provide as much information as possible to allow for a speedy resolution of the issue. Your contact choices on this page will depend on your support plan. 
+6. **다음: 세부 정보 >>** 버튼을 클릭합니다. 실제 지원 요청을 제출할 때에는 문제를 신속하게 해결할 수 있도록 가능한 많은 정보를 제공해야합니다. 이 페이지의 연락처 선택은 지원 계획에 따라 다릅니다.
 
-    **Note:** We will stop at this point. Do you understand how to submit a technical request?
+    **메모**: 실습은 여기에서 중단합니다. 기술 요청을 제출하는 방법을 알고 있습니까?
 
-# Task 2: Create a billing support request
+# 실습 2: 청구 지언 요청 작성
 
-1. Return to the **New support request** section and the **Basics** tab. 
+1. **새 지원 요청**의 **기본 사항** 탭으로 돌아와 다음을 사용하여 정보를 입력합니다.
 
-    | Setting | Value|
-    |----|--------|
-    | Issue Type| **Billing** |
-    | Subscription | **Choose your subscription** |
-    | Summary | **Monthly charge is not correct.** |
-    | Select problem type | **Pricing**, **Help me understand when I will be charged.**, **Select**, **Save** |
+    | 설정 | 값 |
+    | --- | --- |
+    | 문제 유형 | **청구** |
+    | 구독 | **실습에 이용할 구독** |
+    | 요약 | **Monthly charge is not correct.** |
+    | 문제 유형 | **Pricing**, **언제 청구되는지를 이해할 수 있도록 지원**, **저장** |
     | | |
 
-2. Click **Next: Solutions** and read through the recommended solutions.
+2. **다음: 솔루션 >>** 버튼을 클릭하여 권장 옵션을 확인합니다.
 
-3. Click **Next: Details**.  When submitting a real support request you should provide as much information as possible to allow for a speedy resolution of the issue. 
+3. **다음: 세부 정보 >>** 버튼을 클릭합니다. 실제 지원 요청을 제출할 때에는 문제를 신속하게 해결할 수 있도록 가능한 많은 정보를 제공해야합니다.
 
-    **Note:** We will stop at this point. Do you understand how to submit a support request?
+    **메모**: 실습은 여기에서 중단합니다. 기술 요청을 제출하는 방법을 알고 있습니까?
 
-4. Click **All support requests**. This is where your support requests are shown. An email is also sent to your email address containing details of the support request.
+4. **모든 지원 요청**을 선택합니다. Click **All support requests**. 여기서는 생성한 지원 요청이 표시됩니다. 지원 요청에 대한 세부 정보가 포함 된 이메일도 이메일 주소로 전송됩니다.
 
-Congratulations! You have viewed the available support plan options and practiced creating and monitoring a new support request.
+사용 가능한 지원 계획 옵션을 보고 새 지원 요청 작성 및 모니터링을 실습했습니다.
 
-
-**Note**: For more information about [creating an Azure support ticket](https://azure.microsoft.com/en-us/support/create-ticket)
+**메모**: 자세한 정보는 [지원 티켓 만들기](https://azure.microsoft.com/ko-kr/support/create-ticket)를 참고하세요.

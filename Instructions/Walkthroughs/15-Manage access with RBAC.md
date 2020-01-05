@@ -1,73 +1,72 @@
 ---
 wts:
-    title: '15 - Manage access with RBAC'
-    module: 'Module 03 - Security, Privacy, Compliance and Trust'
+    title: '15 - RBAC를 통한 접근 제어'
+    module: '모듈 03 - 보안, 개인정보보호, 규정준수, 신뢰'
 ---
-# 15 - Manage access with RBAC
 
-In this walkthrough, we will assign roles and view activity logs. 
+# 15 - RBAC를 통한 접근 제어
 
-Estimated time: 15 minutes
+이 연습에서는 역할을 할당하고 활동 로그를 확인합니다.
 
-# Task 1: View and assign roles
+실습 시간: 15 분
 
-In this task, we will assign the Virtual machine contributor role. 
+# 실습 1: 역할 보기와 할당
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+이 실습에서는 가상 머신에 기여자 역할을 지정합니다.
 
-2. Search for and select **Resource groups**, then click **+Add**.
+1. <a href="https://portal.azure.com" target="_blank"><span style="color: #0066cc;" color="#0066cc">Azure Portal</span></a>에 로그인 합니다.
 
-3. Create a new resource group. Click **Create** when you are finished. 
+2. 검색창에 **리소스 그룹**을 검색하고 **+추가**를 클릭합니다.
 
-    | Setting | Value |
+3. 다음을 이용하여 새로운 리소스 그룹을 생성합니다.
+
+    | 설정 | 값 |
     | -- | -- |
-    | Subscription | **Choose your subscription** |
-    | Resource group | **myRGRBAC** |
-    | Region | **(US) East US** |
+    | 구독 | **실습에 이용할 구독**|
+	| 리소스 그룹 | **myRGRBAC** |
+    | 영역 | **(아시아 태평양)아시아 남동부** |
     | | |
 
-4. Create **Review + create** and then click **Create**.
+4. **검토 + 만들기** 버튼을 클릭하고 **만들기** 버튼을 클릭합니다..
 
-5. Click **Go to resources** or **Refresh** the resource group page. 
+5. **리소스 그룹으로 이동** 버튼을 클릭하거나 리소스 그룹 블레이드에서 **새로 고침**을 클릭합니다.
 
-6. Click on the  **Access control (IAM)** blade, and then click on **Roles**. Scroll through the large number of roles definitions that are available. Use the Informational icons to get an idea of each role's permissions. Notice there is also information on the number of users and groups that are assigned to each role.
+6. **액세스 제어(IAM)**를 클릭하고 **역할** 탭을 클릭합니다. 미리 정의된 기본 역할 목록을 보고 정보 아이콘을 사용하여 각 역할의 권한에 대해 확인합니다. 각 역할에 할당 된 사용자 및 그룹 수에 대한 정보도 있습니다.
 
-    ![Screenshot of IAM roles blade. Owner, contributor, and reader roles are shown.](../images/1501.png)
+    ![생성된 리소스 그룹 블레이드에서 액세스 제어(IAM)과 역할이 강조 된 스크린 샷](../images/1501.png)
 
-7. Return to the **Access control (IAM)** page, click on **Role assignments** and then click **+Add**. Assign yourself as a Virtual machine contributor, then click **Save**. 
+7. 메뉴 상단에 있는 **+ 추가**를 클릭하고 **역할 할당 추가**를 클릭하여 합니다. 자신을 가상 머신 참여자로 지정하고 **저장**을 클릭합니다.
 
-    | Setting | Value |
+    | 설정 | 값 |
     | -- | -- |
-    | Role | **Virtual machine contributor** |
-    | Assign access to | **Azure AD user, group, or service principal** |
-    | Select | **locate yourself** |
+    | 역할 | **가상 머신 참여자** |
+    | 다음에 대한 액세스 할당 | **Azure AD 사용자, 그룹 또는 서비스 보안 주체** |
+    | 선택 | **자신의 계정** |
     | | |
 
-    **Note:** The Virtual machine contributor role lets you manage virtual machines, but not access to them, and not the virtual network or storage account they're connected to.
+    **메모**: 가상 머신 참여자 역할을 사용하면 가상 머신을 관리 할 수 ​​있지만 가상 머신에 연결된 스토리지 계정 또는 네트워크에는 액세스 할 수는 없습니다.
 
-    ![Screenshot of the Add role assignment page filled out with the necessary information.](../images/1502.png)
-
-
-5. **Refresh** the Role assignments page and ensure you are now listed as a Virtual machine contributor. 
-
-**Note:** As a virtual machine contributor you will be able to manage virtual machines in the resource group. This does not include accessing the machines, or their virtual network or storage accounts. 
-
-# Task 2: Monitor role assignments and remove a role
-
-In this task, we will view the activity log to verify the role assignment, and then remove the role. 
-
-1. In the Azure portal, search for and select **Activity log**.
-
-2. Click **Add filter**, select **Operation**, and then **Create role assignment**.
-
-    ![Screenshot of the Activity log page with configured filter.](../images/1503.png)
-
-3. Verify the Activity log shows your role assignment. 
-
-4. Can you figure out how to remove your role assignment?
-
-Congratulations! You have assigned roles and viewed activity logs. 
-
-**Note**: To avoid additional costs, you can remove this resource group. Search for resource groups, click your resource group, and then click **Delete resource group**. Verify the name of the resource group and then click **Delete**. Monitor the **Notifications** to see how the delete is proceeding.
+    ![액세스 제어(IAM) 블레이드에서 역할 추가를 하는 스크린 샷](../images/1502.png)
 
 
+5. 역할 할당 페이지를 **새로 고침** 하고 사용자 계정이 가상 머신 참여자로 표시되는지 확인합니다.
+
+**메모**: 가상 머신 참여자는 리소스 그룹에서 가상 머신을 관리 할 수 ​​있습니다. 가상 네트워크 또는 스토리지 계정에 액세스하는 것은 포함되지 않습니다. 
+
+# 실습 2: 역할 할당 모니터링 및 역할 제거
+
+이 실습에서는 활동 로그를 보고 역할 할당을 확인한 다음 역할을 제거합니다.
+
+1. Azure portal에서 **활동 로그**를 탐색합니다.
+
+2. **필터 추가**를 클릭하고 리소스에 **작업**, 0개 선택됨에 **역할 할당 만들기**를 선택합니다.
+
+    ![활동 로그에 필터 추가를하여 작업과 역할 할당 만들기를 강조 한 스크린 샷](../images/1503.png)
+
+3. 활동 로그에 역할 할당이 표시되는지 확인합니다.
+
+4. 역할 할당을 제거하는 방법을 알고 있습니까?
+
+역할을 할당하고 활동 로그를 확인해 보았습니다.
+
+**메모**: 추가 비용을 피하기 위해 리소스 그룹을 제거할 수 있습니다. 리소스 그룹(myRGRBAC)을 검색하고 리소스 그룹 블레이드에서 **Delete resource group**을 클릭한 후 삭제 창에 리소스 그룹 이름 입력란에 리소스 그룹 이름(myRGRBAC)을 입력합니다. 리소스 그룹 이름을 정확히 입력하면 하단에 **삭제** 버튼이 활성화 되며 삭제 버튼을 클릭하여 생성한 리소스들을 삭제합니다. **알람**에서 모니터링 할 수 있습니다.

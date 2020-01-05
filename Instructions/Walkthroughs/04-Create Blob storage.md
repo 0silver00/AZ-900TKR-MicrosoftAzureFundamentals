@@ -1,86 +1,85 @@
 ---
 wts:
-    title: '04 - Create blob storage'
-    module: 'Module 02 - Core Azure Services'
+    title: '04 - Blob Storage 만들기'
+    module: '모듈 02 - Azure 핵심 서비스'
 ---
-# 04 - Create blob storage
 
-In this walkthrough, we will create a storage account, then work with blob storage files.
+# 04 - Blob Storage 만들기
 
-Estimated time: 25 minutes. 
+이 연습에서는 스토리지 계정을 만든 다음 Blob Storage에 파일을 업로드 하여 작업합니다.
 
-# Task 1: Create a storage account
+실습 시간: 25 분
 
-In this task, we will create a new storage account. 
+# 실습 1: 스토리지 계정 만들기
 
-1. Sign in to the Azure portal at <a href="https://portal.azure.com" target="_blank"><span style="color: #0066cc;" color="#0066cc">https://portal.azure.com</span></a>
+이 실습에서는 스토리지 계정을 만듭니다.
 
-2. Search for and select **Storage accounts**, and then click **+Add**. 
+1. <a href="https://portal.azure.com" target="_blank"><span style="color: #0066cc;" color="#0066cc">Azure Portal</span></a>에 로그인 합니다.
 
-3. Complete the Create storage account **Basics** blade with the following details.
+2. 검색창에 **스토리지 계정**을 검색한 후 **+추가**를 클릭합니다.
 
+3. 스토리지 계정 만들기 블레이드의 **기본 사항**탭이 뜨면 다음을 이용하여 정보를 입력합니다. 명시되지 않은 정보는 기본 값으로 설정합니다.
 
-    | Setting | Value | 
+    | 설정 | 값 | 
     | --- | --- |
-    | Subscription | **Choose your subscription** |
-    | Resource group | **myRGStorage** (create new) |
-    | Storage account name | **storageaccountxxx** (must be unique) |
-    | Location | **(US) East US**  |
-    | Performance | **Standard** |
-    | Account kind | **StorageV2 (general purpose v2)** |
-    | Replication | **Locally redundant storage (LRS)** |
-    | Access tier (default) | **Hot** |
+    | 구독 | **실습에 이용할 구독** |
+	| 리소스 그룹 | **myRGStorage** (새로 만들기) |
+    | 스토리지 계정 이름 | **storageaccountxxx** (유니크 해야 함) |
+    | 위치 | **(아시아 태평양)아시아 남동부** |
+    | 성능 | **표준** |
+    | 계정 종류 | **StorageV2(범용 v2)** |
+    | 복제 | **(LRS(로컬 중복 스토리지)** |
+    | 액세스 계층 (기본값) | **핫** |
     | | |
 
-5. Select **Review + Create** to review your storage account settings and allow Azure to validate the configuration. 
+5. **검토 + 만들기** 버튼을 클릭하여 스토리지 계정의 유효성 검사를 합니다.
 
-6. Once validated select **Create**. Wait for the notification that the account was successfully created. 
+6. 유효성 검사가 완료되면 **만들기** 버튼을 클릭하여 스토리지 계정을 생성합니다. **알람**에서 스토리지 계정의 생성이 완료될 때 까지 기다립니다.
 
-7. Search for **Storage accounts** and ensure your new storage account is listed.
+7. **스토리지 계정**에서 새로 생성한 스토리지 계정이 보이는지 확인합니다.
 
-    ![Screenshot of the newly created storage account in the Azure portal .](../images/0401.png)
+    ![Azure Portal에서 새로 만든 스토리지 계정을 확인하는 스크린 샷](../images/0401.png)
 
-# Task 2: Work with blob storage
+# 실습 2: Blob Storage 작업
 
-In this task, we will create a Blob container and upload a blob file. 
+이 실습에서는 Blob 컨테이너를 만들고 Blob 파일을 업로드 합니다.
 
-1. Click your new storage account and scroll to the **Blob** service section, and then select **Containers**.
+1. 새로 생성된 스토리지 계정을 클릭하고 **Blob Service** 영역에 **컨테이너**를 선택합니다.
 
-2. Click **+Container** and complete the information. Use the Information icons to learn more. When done click **OK**.
+2. Click **+ 컨테이너**를 클릭하고 다음을 이용하여 정보를 입력한 후 **확인**버튼을 클릭합니다.
 
-
-    | Setting | Value |
+    | 설정 | 값 |
     | --- | --- |
-    | Name | **blob1**  |
-    | Public access level| **Private (no anonymous access)** |
+    | 이름 | **blob1**  |
+    | 공용 액세스 수준 | **프라이빗(익명 액세스 없음)** |
     | | |
 
-    ![Screenshot of the newly created blob container in the storage account in the Azure portal.](../images/0402.png)
+    ![Azure Portal의 스토리지 계정에 blob1 컨테이너가 생성된 스크린 샷](../images/0402.png)
 
-4. Select the **blob1** container, and then click **Upload**.
+4. **blob1** 컨테이너를 선택하고 **업로드**를 클릭합니다.
 
-5. Browse to a file on your local computer. If you do not have a file create a simple `.txt` file. 
+5. Blob 업로드 창이 뜨면 폴더 모양의 아이콘을 클릭합니다. **열기** 창이 뜨면 로컬 컴퓨터에서 `.txt` 파일을 찾아 업로드 합니다. `.txt` 파일이 없는 경우 새로 생성합니다.
 
-6. Click on the **Advanced** arrow, leave the default values but note your options, and then select **Upload**.
+6. **고급** 화살표를 클릭하고 옵션을 확인한 후 기본 값을 그대로 둔 채 **업로드** 버튼을 클릭합니다.
 
-    **Note**: You can upload as many blobs as you like in this way. New blobs will be listed within the container.
+    **메모**: 이 방법으로 여러 개의 blob을 업로드 할 수 있습니다.
 
-7. Once the file is uploaded, right-click on the file and notice the options including Edit/View, Download, Blob properties, and Delete. 
+7. 파일 업로드가 완료되면 마우스 오른쪽 버튼을 클릭하고 `보기/편집`, `다운로드`, `속성`등의 옵션을 확인합니다.
 
-8. As you have time, return to your storage account and review the options for Files, Tables, and Queues.
+8. 시간이 있으면 스토리지 계정으로 돌아와 파일 서비스와 Table Service, 큐 서비스를 확인합니다.
 
-# Task 3: Monitor the storage account
+# 실습 3: 스토리지 계정 모니터링
 
-1. Return to the main storage account page.
+1. 스토리지 계정의 메인 페이지로 이동합니다.
 
-2. Click **Diagnose and solve problems**. 
+2. **문제 진단 및 해결**을 클릭합니다.
 
-3. Explore some of the most common storage problems. Notice there is a troubleshooter.
+3. 일반적인 스토리지 계정의 문제를 살펴봅니다. 문제 발생 시 이 가이드를 보고 해결할 수 있습니다.
 
-4. Click **Insights (Preview)**. Notice there is information on Failures, Performance, Availability, and Capacity. Your information will be different.
+4. **인사이트(미리보기)**를 클릭합니다. Failures, Performance, Availability, Capacity에 대한 정보를 확인할 수 있습니다.
 
-    ![Screenshot of the storage account Insights page.](../images/0403.png)
+    ![스토리지 계정의 인사이트 스크린 샷](../images/0403.png)
 
-Congratulations! You have created a storage account, then worked with blob storage files.
+스토리지 계정을 만든 다음 blob 저장소에 파일을 업로드 하였습니다.
 
-**Note**: To avoid additional costs, you can remove this resource group. Search for resource groups, click your resource group, and then click **Delete resource group**. Verify the name of the resource group and then click **Delete**. Monitor the **Notifications** to see how the delete is proceeding.
+**메모**: 추가 비용을 피하기 위해 리소스 그룹을 제거할 수 있습니다. 리소스 그룹(myRGStorage)을 검색하고 리소스 그룹 블레이드에서 **Delete resource group**을 클릭한 후 삭제 창에 리소스 그룹 이름 입력란에 리소스 그룹 이름(myRGStorage)을 입력합니다. 리소스 그룹 이름을 정확히 입력하면 하단에 **삭제** 버튼이 활성화 되며 삭제 버튼을 클릭하여 생성한 리소스들을 삭제합니다. **알람**에서 모니터링 할 수 있습니다.

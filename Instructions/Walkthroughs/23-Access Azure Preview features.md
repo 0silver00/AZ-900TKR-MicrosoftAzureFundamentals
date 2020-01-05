@@ -1,51 +1,49 @@
 ---
 wts:
-    title: '23 - Access Azure Preview features'
-    module: 'Module 04 - Azure Pricing and Support'
+    title: '23 - Azure Preview 기능 액세스'
+    module: '모듈 04 - Azure 과금과 지원'
 ---
 
-# 23 - Access Azure Preview features
+# 23 - Azure Preview 기능 액세스
 
-In this walkthrough, we will access and identify Azure preview services and features, and view the latest Azure updates information.
+이 연습에서는 Azure Preview 서비스 또는 기능에 액세스하고 최신 Azure 업데이트 정보를 확인합니다.
 
-Estimated time: 10 minutes
+실습 시간: 10 분
 
-# Task 1: Access preview services and features
+# 실습 1: Preview 서비스와 기능 액세스
 
-In this task, we will review Marketplace Preview features. 
+이 실습에서는 마켓 플레이스의 Preview 기능을 확인합니다.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. <a href="https://portal.azure.com" target="_blank"><span style="color: #0066cc;" color="#0066cc">Azure Portal</span></a>에 로그인 합니다.
 
-2. Search for and select **Marketplace**. 
+2. 검색창에 **Marketplace**를 검색합니다. 
 
-3. Search the Marketplace for **Preview**. Review any preview products that interest you. 
+3. 마켓플레이스 검색창에 **Preview**를 검색하고 관심 있는 Preview 제품을 모두 검토합니다.
 
-4. Search the Marketplace for **Kubernetes Service**. Select the Kubernetes Service, and click **Create**.
+4. 마켓플레이스 검색창에 **Kubernetes Service**를 검색하고 **만들기** 버튼을 클릭합니다.
 
-5. In the **Kubernetes Version** drop-down notice there is a **Preview** version. Not all services will have a version in preview. 
+5. **Kubernetes 버전**의 드롭다운 메뉴를 클릭하면 **Preview** 버전이 있을 수 있습니다. 모든 서비스에 Preview 버전이 있지 않으며 Kubernetes Service에도 Preview 버전이 없을 수 있습니다.
 
-    ![Screenshot of Azure Kubernetes Services pane with the create Kubernetes service button highlighted.](../images/2301.png)
+    ![Kubernetes Service에서 Preview 버전이 있는 스크린 샷](../images/2301.png)
 
-    **Note**: In these scenarios, where new functionality or features are made available within an existing generally available Azure service or product, although you may be using the Azure service in production, the preview feature or functionality may not yet be ready for production deployments. And you should make sure you are aware of any limitations around its use before deploying to production.
+    **메모**: 프로덕션에서 Azure 서비스를 사용하는 경우, 일반적으로 사용 가능한 Azure 서비스나 제품 내에서 미리보기 기능은 아직 프로덕션 배포에 적합하지 않을 수 있습니다. 또한 프로덕션 환경에 배포하기 전에 사용에 대한 제한 사항을 알고 있어야 합니다.
 
-# Task 2: Review the Azure Updates page
+# 실습 2: Azure 업데이트 페이지 검토
 
-In this task, we will review the Azure Updates page.
+이 실습에서는 Azure 업데이트 페이지를 검토합니다.
 
-1. In a browser go to the [Azure Updates](https://azure.microsoft.com/en-us/updates/) page. 
+1. 브라우저에서 <a href="https://azure.microsoft.com/ko-kr/updates/" target="_blank"><span style="color: #0066cc;" color="#0066cc">Azure 업데이트</span></a> 웹페이지를 탐색합니다.
 
-2. Note the presence of four tab options i.e. **All**, **Now Available**, **In preview** and **In development**
+2. **지금 이용 가능**, **미리 보기**, **개발 중** 체크 박스 옵션이 있으며 필요한 정보만 체크하여 확인할 수 있습니다.
 
-3. Click on the **In preview** tab and type **Kubernetes** in the search for a search box, then select Azure Kubernetes Service (AKS) when prompted. The page returns a list of items in preview related to Kubernetes. Your result list may be different. 
+3. **미리 보기** 체크 박스에 체크를 한 후 **범주별 찾아보기** 드롭 다운 메뉴에서 **컨테이너**를 선택한 후 **결과 필터링** 버튼을 클릭합니다. 컨테이너 서비스 중 Preview인 서비스만 볼 수 있습니다.
 
-    ![Screenshot of Azure Updates page with details related to Kubernetes and In preview returned.](../images/2302.png)
+    ![미리 보기 중 컨테이너로 검색된 목록이 강조 된 스크린 샷](../images/2302.png)
 
-4. Click on any item in the results list to get more detailed information. 
+4. 결과 목록에서 항목을 클릭하여 더 자세한 정보를 확인합니다.
 
-5. Return to the **Azure Updates** page, view items that are now have a status of **General Availability** by clicking **Now available** and noting the items now displaying. Browse any that are of interest to you.
+5. **Azure 업데이트** 페이지로 돌아가 **지금 이용 가능**만 선택한 후 결과 필터링을 합니다. 출력된 결과 중 관심 있는 항목을 클릭하여 자세한 정보를 확인합니다.
 
-6. Return to the **Azure Updates** page, click on the **In development** tab and note the items returned that are currently in development. Browse any that are of interest to you.
+6. **Azure 업데이트** 페이지로 돌아가 **개발 중**만 선택한 후 결과 필터링을 합니다. 출력된 결과 중 관심 있는 항목을 클릭하여 자세한 정보를 확인합니다.
 
-
-Congratulations! You have accessed and identified Azure preview services and features, and viewed the latest Azure updates information.
-
+Azure Preview 서비스 또는 기능에 액세스하고 최신 Azure 업데이트 정보를 확인했습니다.

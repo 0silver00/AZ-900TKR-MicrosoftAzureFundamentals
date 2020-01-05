@@ -1,68 +1,68 @@
 ---
 wts:
-    title: '08 - Create a Web App'
-    module: 'Module 02 - Core Azure Services'
+    title: '08 - Web App 만들기'
+    module: '모듈 02 - Azure 핵심 서비스'
 ---
-# 08 - Create a Web App
 
-In this walkthrough, we will create a new web app that runs a Docker container. The container displays a Welcome message. 
+# 08 - Web App 만들기
 
-Estimated time: 25 minutes. 
+이 연습에서는 Docker 컨테이너를 실행하는 Web App을 만듭니다.
 
-# Task 1: Create a Web App
+실습 시간: 25 분 
 
-Azure App Service is actually a collection of four services, all of which are built to help you host and run web applications. The four services (Web Apps, Mobile Apps, API Apps, and Logic Apps) look different, but in the end they all operate in very similar ways. Web Apps are the most commonly used of the four services, and this is the service that we will be using in this lab.
+# 실습 1: Web App 만들기
 
-In this task, you will create an Azure App Service Web App. 
+Azure App Service는 실제로 4개의 서비스 모음으로, 웹 서비스를 호스팅하고 실행하는 데 도움이 됩니다. 네 가지 서비스 (Web Apps, Mobile Apps, API Apps 및 Logic Apps)는 다르게 보이지만 모두 유사한 방식으로 작동합니다. Web App은 네 가지 서비스 중 가장 일반적으로 사용되며 이 연습에서 사용할 서비스입니다.
 
-1. Sign-in to the [Azure portal](http://portal.azure.com/). 
+이 실습에서는 Azure App Service Web App을 만듭니다. 
 
-2. Search for and select **App Services**.
+1. <a href="https://portal.azure.com" target="_blank"><span style="color: #0066cc;" color="#0066cc">Azure Portal</span></a>에 로그인 합니다.
 
-3. Click **+Add** and configure the web app. Take the defauts for App Service Plan. 
+2. 검색창에 **App Services**을 검색합니다.
 
-    | Setting | Value |
+3. **+추가**를 클릭하여 Web App을 생성합니다. 다음을 이용하여 정보를 입력합니다. 명시되지 않은 정보는 기본 값으로 설정합니다.
+
+    | 설정 | 값 |
     | -- | -- |
-    | Subscription | **Choose your subscription** |
-    | Resource group | **myRGWebApp1** (create new) |
-    | Name | **myDockerWebAppxxx** (must be unique) |
-    | Publish | **Docker Container** |
-    | Operating system | **Linux** |
-    | Region | **East US** (ignore any service plan availabiity warnings) |
+    | 구독 | **실습에 이용할 구독** |
+	| 리소스 그룹 | **myRGWebApp1** (새로 만들기) |
+    | 이름 | **myDockerWebAppxxx** (유니크 해야 함) |
+    | 게시 | **Docker 컨테이너** |
+    | 운영 체제 | **Linux** |
+    | 지역 | **Southeast Asia** (모든 서비스 계획 가용성 경고 무시) |
     | | |	
 
-4. Click **Next > Docker** and configure the container information. The startup command is optional and not need in this exercise. 
+4. **다음 > Docker**를 클릭하고 컨테이너 정보를 구성합니다. 시작 명령은 옵션이며 이 실습에서는 필요하지 않습니다.
 
-    **Note:** This is same container that was used in the Container Instances walkthrough to display a hello world message. 
+    **메모**: 이 컨테이너는 컨테이너 인스턴스에서 사용된 것과 동일한 컨테이너 입니다.
 
-    | Setting | Value |
+    | 설정 | 값 |
     | -- | -- |
-    | Options | **Single container** |
-    | Image source | **Docker Hub** |
-    | Access type | **Public** |
-    | Image and tag | **microsoft/aci-helloworld** |
+    | 옵션 | **단일 컨테이너** |
+    | 이미지 소스 | **Docker Hub** |
+    | 액세스 형식 | **공개** |
+    | 이미지 및 태그 | **microsoft/aci-helloworld** |
     | | |	
 
 
-5. Click **Review + create**, and then **Create**. 
+5. **검토 + 만들기**를 클릭하고 유효성 검사가 끝나면 **만들기** 버튼을 클릭하여 Web App을 생성합니다.
 
-# Task 2: Test the Web App
+# 실습 2: Web App 테스트
 
-In this task, we will test the web app.
+이 실습에서는 Web App을 테스트합니다.
 
-1. Wait for the Web App to deploy.
+1. Web App이 배포가 완료될 때 까지 기다립니다.
 
-2. From **Notifications** click **Go to resource**. 
+2. **알람**에서 **리소스로 이동** 버튼을 클릭합니다.
 
-3. In the **Properties** blade, locate the **URL**. 
+3. **개요** 블레이드에서 **URL**을 찾습니다.
 
-    ![Screenshot of the web app properties blade. The URL is highlighted.](../images/0801.png)
+    ![Web App의 개요 블레이드 속성에서 URL이 강조된 스크린 샷](../images/0801.png)
 
-4. Click on the **URL**, the docker container will run, and the Azure Container Instances page will display.
+4. **URL**을 클릭하면 Docker 컨테이너가 실행되고 Azure 컨테이너 인스턴스 페이지가 표시됩니다.
 
-    ![Screenshot of the Azure Container Instance page.](../images/0802.png)
+    ![Azure 컨테이너 인스턴스 페이지가 출력된 스크린 샷](../images/0802.png)
 
-5. Notice on the **Overview** page for your web app there are several charts. If you run the URL a few times you can begin to view access information. This includes number of requests and average response time. 
+5. Web App의 **개요** 블레이드에 여러개의 차트가 있습니다. URL을 몇번 실행하면 액세스 정보를 볼 수 있습니다. 여기에는 요청 수와 평균 응답시간이 포함됩니다.
 
-**Note**: To avoid additional costs, you can remove this resource group. Search for resource groups, click your resource group, and then click **Delete resource group**. Verify the name of the resource group and then click **Delete**. Monitor the **Notifications** to see how the delete is proceeding.
-
+**메모**: 추가 비용을 피하기 위해 리소스 그룹을 제거할 수 있습니다. 리소스 그룹(myRGWebApp1)을 검색하고 리소스 그룹 블레이드에서 **Delete resource group**을 클릭한 후 삭제 창에 리소스 그룹 이름 입력란에 리소스 그룹 이름(myRGWebApp1)을 입력합니다. 리소스 그룹 이름을 정확히 입력하면 하단에 **삭제** 버튼이 활성화 되며 삭제 버튼을 클릭하여 생성한 리소스들을 삭제합니다. **알람**에서 모니터링 할 수 있습니다.

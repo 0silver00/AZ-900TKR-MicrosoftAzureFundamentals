@@ -1,103 +1,105 @@
 ---
 wts:
-    title: '17 - Implement resource tagging'
-    module: 'Module 03 - Security, Privacy, Compliance and Trust'
+    title: '17 - 리소스 태깅 구현'
+    module: '모듈 03 - 보안, 개인정보보호, 규정준수, 신뢰'
 ---
-# 17 - Implement resource tagging
 
-In this walkthrough, we will create a policy assignment that requires tagging, created a storage account and test the tagging, view resources with a specified tag, and remove the tagging policy.
+# 17 - 리소스 태깅 구현
 
-Estimated time: 30 minutes
+이 연습에서는 태깅이 필요한 정책 할당을 생성하고, 스토리지 계정을 생성하여 태깅을 테스트하고 지정된 태그가 있는 리소스를 보고 태깅 정책을 제거합니다.
 
-# Task 1: Create a Policy assignment
+실습 시간: 30 분
 
-In this task, we will configure the **Require specified tag** policy and assign it to our subscription. 
+# 실습 1: 정책 할당 만들기
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+이 실습에서는 **지정된 태그 필요** 정책을 구성하고 구독에 할당합니다.
 
-2. Search for and select **Policy**. 
+1. <a href="https://portal.azure.com" target="_blank"><span style="color: #0066cc;" color="#0066cc">Azure Portal</span></a>에 로그인 합니다.
 
-3. Under the **Authoring** section click **Assignments**, and then select **Assign Policy** from the top of the  page.
+2. 검색창에 **정책**을 검색합니다.
 
-4. Notice the **Scope** for our policy will be subscription wide. 
+3. **제작** 섹션에서 **할당**을 클릭하고 **정책 할당**을 클릭합니다.
 
-5. Select the **Policy definition** ellipsis button (end of the textbox on the right).  In the **Search** box type **tag** and click on the  **Require specified tag** definition, then click **Select**.
+4. 정책의 **범위**는 실습에서 이용 할 구독을 선택합니다.
 
-   ![Screenshot of Available Definitions pane with Require specified tag selected.](../images/1701.png)
+5. **정책 정의**에 있는 줄임말 버튼을 클릭하여 **사용 가능한 정의** 창의 뜨면 검색에 **태그**를 입력하고 출력된 목록에서 **지정된 태그가 필요합니다.**를 선택한 후 **선택**버튼을 클릭합니다.
 
-6.  In the **Assign policy** pane, in the **PARAMETERS** tab, type in **Company** for the tag name. Cick **Review + create**, and then **Create**.
+   ![사용 가능한 정의 창에서 지정된 태그가 필요합니다. 가 강조 된 스크린 샷](../images/1701.png)
 
-    **Note:** This is a simple example to demonstrate tagging. 
+6. **정책 할당** 블레이드의 **매개 변수** 탭으로 이동하여 태그 이름에 **Company**를 입력합니다. **검토 + 만들기** 버튼을 클릭 한 다음 **만들기** 버튼을 클릭합니다.
 
-    ![Screenshot of Assign policy pane with the Tag name filled out.](../images/1702.png)
+    **메모**: 태그를 보여주는 간단한 예시 입니다.
 
-7. The **Require specified tag** policy assignment is now in place. When a subscription resource is created the Company tag value must be supplied.
+    ![매개 변구의 태그 이름에 Company를 입력한 스크린 샷](../images/1702.png)
 
-   ![Screenshot of Policy - Assignments pane with the allowed locations assignment highlighted.](../images/1703.png)
+7. **지정된 태그가 필요합니다.** 정책 할당이 완료되었습니다. 구독에 리소스를 생성할 시 Company 태그를 제공해야합니다.
 
-# Task 2: Create a storage account to test the required tagging
+   ![정책 - 할당 블레이드에서 지정된 태그가 필요합니다. 정책 할당이 표시된 스크린 샷](../images/1703.png)
 
-In this task, we will create storage accounts to test the required tagging. 
+# 실습 2: 스토리지 계정을 생성하여 지정된 태그가 필요한지 테스트
 
-1. In the Azure Portal, search for and select **Storage accounts**, and then click **+Add**.
+이 실습에서는 지정된 태그가 필요합니다. 정책이 정상적으로 적용되었는지 확인하기 위해 스토리지 계정을 만들어 봅니다.
 
-2. Configure the storage account. 
+1. Azure Portal에서 검색창에 **스토리지 계정**을 검색하고 **+추가**를 클릭합니다.
 
-    | Setting | Value | 
+2. 다음을 이용하여 스토리지 계정 정보를 입력합니다. 
+
+    | 설정 | 값 | 
     | --- | --- |
-    | Subscription | **Use your subscription** |
-    | Resource group | **myRGTags** (new) |
-    | Storage account name | **storageaccountxxx** (must be unique) |
-    | Location | **(US) East US** |
+    | 구독 | **실습에 이용할 구독**|
+	| 리소스 그룹 | **myRGTags** (새로 만들기) |
+    | 스토리지 계정 이름 | **storageaccountxxx** (유니크 해야 함) |
+    | 위치 | **(아시아 태평양)아시아 남동부** |
     | | |
 
-3. Click **Review + create**. 
+3. **리뷰 + 만들기** 버튼을 클릭합니다. 
 
-**Note:** We are testing to see what happens when the tag is not supplied. 
+**메모**: 태그가 제공되지 않은 경우 어떤 일이 발생하는지 테스트 중입니다.
 
-4. You will receive a Validation failed message, and click on the **Click here to view details** message. In the resultant **Errors** blade, on the **Summary** tab note the error message, **Resource was disallowed by Policy**.
+4. **유효성을 검사하지 못했습니다.** 메시지가 표시되고 **자세한 내용을 보려면 여기를 클릭하세요.** 메시지를 클릭하여 오류 메시지를 자세히 봅니다. **오류** 블레이드의 **요약** 탭에서 **정책에서 'storageaccountxxx' 리소스를 허용하지 않았습니다.**라는 오류 메시지와 정책 이름이 **지정된 태그가 필요합니다.**로 표시된 것을 확인합니다.
 
-    **Note:** If you view the Raw Error tab you will see the specific tag name that is required. 
+    **메모**: Raw 오류 탭을 보면 필요한 특정 태그 이름이 표시됩니다.
 
-    ![Screenshot of disallowed due to policy error.](../images/1704.png)
+    ![요약 탭에서 에러 메세지가 강조 된 스크린 샷](../images/1704.png)
 
-5. Close the **Error** pane and click **Previous** (bottom of the screen). Provide the tagging information. 
+5. **오류** 창을 닫고 **태그** 탭으로 이동하고 다음을 이용하여 태깅 정보를 제공합니다.
 
-    | Setting | Value | 
+    | 설정 | 값 | 
     | --- | --- |
-    | Tag name | **Company** (may not be in the drop-down list) |
-    | Tag value | **Contoso** |
+    | 태그 이름 | **Company** (드롭 다운 목록에 없을 수 있습니다) |
+    | 태그 값 | **Contoso** |
     | | |
 
-6. Click **Review + create**, and the validation should now pass. Click **Create** to deploy the storage account. 
+6. **검토 + 만들기** 버튼을 클릭합니다. 이번엔 유효성 검사가 통과합니다. **만들기** 버튼을 클릭하여 스토리지 계정을 배포합니다.
 
-# Task 3: View all resources with a specific tag
+# 실습 3: 특정 태그가 있는 모든 리소스보기
 
-1. In the Portal, search and select **Tags**.
+이 실습에서는 특정한 태그가 있는 모든 리소스를 확인합니다.
 
-2. Notice all the tags/values that are available are shown. Select the **Company:Contoso** pair and your storage account will be listed. Your storage account must be deployed for the tag to display. 
+1. Azure Portal에서 검색창에 **태그**를 검색합니다.
 
-   ![Screenshot of the Tags with company and contoso selected.](../images/1705.png)
+2. 사용 가능한 모든 태그/값이 표시됩니다. **Company : Contoso** 쌍을 선택하면 생성한 스토리지 계정을 확인할 수 있습니다. 스토리지 계정의 배포가 완료되어야 합니다.
 
-3. In the Portal, search and select **All resources**.
+   ![Company : Contoso 쌍을 선택했을 때 출력되는 목록 스크린 샷](../images/1705.png)
 
-4. Click **Add filter** and add the **Company** tag. Notice you can limit the search to available values of the tag. With the filter applied your storage account will be listed.
+3. Azure Portal에서 **모든 리소스**를 선택합니다.
 
-    ![Screenshot of the All Resources filter with Company selected.](../images/1706.png)
+4. **필터 추가**를 클릭하고 **Company** 태그를 추가합니다. 사용 가능한 태그 값으로 검색을 제한 할 수 있습니다. 필터가 적용되면 스토리지 계정을 확인할 수 있습니다.
 
-# Task 4: Delete the policy assignment
+    ![필터 추가와 Company 태그가 강조된 스크린 샷](../images/1706.png)
 
-In this task, we will remove the **Require specific tag** policy so it does not affect our future work. 
+# 실습 4: 정책 할당 삭제
 
-1. In the portal, search for and select **Policy**, and then click your **Require specified tag** policy.
+이 작업에서는 **지정된 태그가 필요합니다.** 정책을 제거하여 향후 작업에 영향을 미치지 않도록 합니다.
 
-2. Select **Delete Assignment** from the top menu.
+1. Azure Portal에서 검색창에 **정책**을 검색하고 **지정된 태그가 필요합니다.** 정책을 클릭합니다.
 
-3. Confirm you wish to delete the policy assignment in the **Delete assignment** dialogue by clicking **Yes**
+2. 상단 메뉴에 있는 **할당 삭제**를 클릭합니다.
 
-5. As you have time, try to create another resource to ensure the policy is no longer in effect.
+3. **할당 삭제** 창이 뜨면 **예** 버튼을 클릭하여 정책 할당을 삭제합니다.
 
-In this walkthrough, we created a policy assignment that required tagging, created a storage account and tested the tagging, viewed resources with a specified tag, and removed the tagging policy.
+4. 시간이 있으면 다른 리소스를 만들어 정책이 더 이상 적용되지 않는지 확인합니다.
 
+태그 지정이 필요한 정책 할당을 생성하고 스토리지 계정을 생성 한 후 태그 지정을 테스트하고 지정된 태그를 사용하여 리소스를 보고 태그 지정 정책을 제거했습니다.
 
-**Note**: To avoid additional costs, you can remove this resource group. Search for resource groups, click your resource group, and then click **Delete resource group**. Verify the name of the resource group and then click **Delete**. Monitor the **Notifications** to see how the delete is proceeding.
+**메모**: 추가 비용을 피하기 위해 리소스 그룹을 제거할 수 있습니다. 리소스 그룹(myRGTags)을 검색하고 리소스 그룹 블레이드에서 **Delete resource group**을 클릭한 후 삭제 창에 리소스 그룹 이름 입력란에 리소스 그룹 이름(myRGTags)을 입력합니다. 리소스 그룹 이름을 정확히 입력하면 하단에 **삭제** 버튼이 활성화 되며 삭제 버튼을 클릭하여 생성한 리소스들을 삭제합니다. **알람**에서 모니터링 할 수 있습니다.

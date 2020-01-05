@@ -1,80 +1,89 @@
 ---
 wts:
-    title: '07 - Implement Azure Functions'
-    module: 'Module 02 - Core Azure Services'
+    title: '07 - Azure Functions 구현'
+    module: '모듈 02 - Azure 핵심 서비스'
 ---
-# 07 - Implement Azure Functions
 
-In this walkthrough, we will create a Function App to display a Hello message when there is an HTTP request. 
+# 07 - Azure Functions 구현
 
-Estimated time: 30 minutes
+이 연습에서는 HTTP 요청이 있을 때 Hello 메시지를 표시하는 함수 앱을 만듭니다.
 
-# Task 1: Create a Function app
+실습 시간: 30 분
 
-In this task, we will create a Function app.
+# 실습 1: 함수 앱 만들기
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+이 실습에서는 Fnction app을 만듭니다.
 
-2. Search for **Function App** and then click **+Add**.
+1. <a href="https://portal.azure.com" target="_blank"><span style="color: #0066cc;" color="#0066cc">Azure Portal</span></a>에 로그인 합니다.
 
-3. Fill in the Azure Function App settings fields. If not specified, take the default. 
+2. 검색창에 **함수 앱**을 검색한 후 **+추가**를 클릭합니다.
 
-    | Settings | Value |
+3. 함수 앱 만들기 블레이드의 **기본** 탭이 뜨면 다음을 이용하여 정보를 입력합니다.
+
+    | 설정 | 값 |
     | -- | --|
-    | App name | **function-xxx** (this must be unique) |
-    | Subscription | **Choose your subscription** |
-    | Resource group | **myRGFunction** (create new) |
-    | OS | **Windows** |
-    | Hosting plan | **Consumption plan** |
-    | Location | **East US** |
+    | 구독 | **실습에 이용할 구독** |
+	| 리소스 그룹 | **myRGFunction** (새로 만들기) |
+    | 함수 앱 이름 | **function-xxx** (유니크 해야 함) |
+    | 게시 | **코드** |
+    | 런타임 스택 | **.Net Core** |
+    | 지역 | **Southeast Asia** |
     | | |	
 
-4. Select the **Create** button to begin provisioning and deploying your new Azure Function App.
+4. **호스팅** 탭으로  이동한 후 다음과 같이 설정합니다.
 
-5. Wait for the Notiication that the resource has been created.
+	| 설정 | 값 |
+	|----|----|
+	| 운영 체제 | **Windows** |
+    | 계획의 플랜 유형 | **소비** |
+	|||
 
-6. **Refresh** the Function App page and verify your new resource is *running*. 
+5. **검토 + 만들기** 버튼을 클릭하여 함수 앱의 유효성 검사를 합니다.
 
-    ![Screenshot of the Function App page with the new Function app.](../images/0701.png)
+6. 유효성 검사가 완료되면 **만들기** 버튼을 클릭하여 함수 앱을 생성합니다. **알람**에서 함수 앱의 생성을 모니터링 합니다.
 
-# Task 2: Create a HTTP triggered function and test
+6. 함수 앱에서 새로운 리소스의 상태가 *실행 중*인지 확인합니다. 
 
-In this task, we will use the Webhook + API function to display a message when there is an HTTP request. 
+    ![함수 앱 페이지에서 함구 앱의 상태가 실행 중인 스크린 샷](../images/0701.png)
 
-1. Select your new Function app.
+# 실습 2: HTTP 트리거를 갖는 함수 생성과 테스트
 
-2. Select the "**+**" button next to **Functions**, and select **In-portal**. Notice your other choices for developing in Visual Studio and VS Code. Click **Continue**. 
+이 실습은 Webhook + API 함수를 사용하여 HTTP 요청이 있을 때 메시지를 표시합니다.
 
-    ![Screenshot of the choose a development environment step in the azure functions for dot net getting started pane inside Azure portal. The display elements for creating a new in-portal function are highlighted. The highlighted elements are expand the function app, add new function, in-portal, and the continue button.](../images/0702.png)
+1. 새로운 함수 앱을 선택합니다.
 
-3. Choose **WebHook + API**, and then select **Create**. This will run a function whenever the app receives an HTTP request. There are a large number of other templates to choose from.
+2. 함수 오른쪽에 "**+**" 버튼을 클릭하고 **포털 내**를 선택합니다. Visual Studio나 VS Code를 사용할 수 있습니다. **계속** 버튼을 클릭합니다.
 
-    ![Screenshot of the create a function step in the azure functions for dot net getting started pane inside Azure portal. The webhook + api button and create button are highlighted to illustrate the display elements used to add a new webhook to an Azure function.](../images/0703.png)
+    ![Azure Portal 내에서 함수 앱의 함수를 추가하여 포털 내 .NET 코드를 수정할 수 있는 설정이 강조된 스크린 샷](../images/0702.png)
 
-4. Notice the code is designed to run an HTTP request and log information. Also, notice the function returns a Hello message with a name. 
+3. **WebHook + API**를 선택하고 **만들기** 버튼을 클릭합니다. 이 설정은 앱이 HTTP 요청을 받을 때마다 함수가 실행됩니다. 
 
-    ![Screenshot of the function code. The Hello message is hightlighted.](../images/0704.png)
+    ![Azure Portal 내에서 함수 앱이 WebHook + API 트리거로 실행될 수 있는 설정이 강조된 스크린 샷](../images/0703.png)
 
-5. Select **Get function URL** from the top of function editor. 
+4. 이 코드는 HTTP 요청이 실행되고 로그를 남기도록 설계되었습니다. 함수는 이름과 함께 Hello 메시지를 반환합니다. 
 
-6. Set the **Key** drop-down value to **default (Function key)**. Then, select **Copy** to copy the function URL. 
+    ![함수 코드의 Hello 메세지가 강조된 스크린 샷](../images/0704.png)
 
-    ![Screenshot of the get function URL pane inside the function editor in Azure portal. The display elements get function URL button, set key dropdown, and copy URL button are highlighted to indicate how to obtain and copy the function URL from the function editor.](../images/0705.png)
+5. 함수 편집기의 상단에 있는 **</> 함수 URL 가져오기**를 클릭합니다.
 
-7. Paste the copied function URL into your web browser's address bar. When the page is requested the function will run. Notice the message that the function needs a name. 
+6. **키** 드롭 다운 메뉴의 값을 **default (Function key)**으로 설정하고 **복사** 버튼을 클릭하여 함수 URL을 복사합니다.
 
-    ![Screenshot of the please provide a name message.](../images/0706.png)
+    ![</> 함수 URL 가져오기 화면에서 키 값이 default (Function key)로 설정된 것과 복사 버튼이 강조된 스크린 샷](../images/0705.png)
 
-8. Append **&name=yourname** to the end of the URL. 
+7. 복사한 URL을 웹 브라우저의 주소창에 붙여넣습니다. 페이지가 요청되면서 함수가 실행되며 이 함수에는 이름이 필요하다는 메시지가 출력됩니다.
 
-    **Note**: Here, `<yourname>` refers to your given first name. The final URL will be something like, `https://azfuncxxx.azurewebsites.net/api/HttpTrigger1?code=X9xx9999xXXXXX9x9xxxXX==&name=cindy`
+    ![이름 메세지를 입력하라는 메시지가 출력된 스크린 샷](../images/0706.png)
 
-    ![Screenshot of a highlighted function URL and an appended example user name in the address bar of a web browser. The hello message and user name are also highlighted to illustrate the output of the function in the main browser window.](../images/0707.png)
+8. URL의 끝에 **&name=yourname**을 추가합니다.
 
-9. When your function runs, trace information is written to log files in Azure. To view the logs in Azure portal, return to the function editor, and select the **Logs** button.
+    **메모**: 여기서 `<yourname>`에는 사용자의 이름을 넣어보세요. 예를 들어 이름이 Cindy라면 이런 URL이 됩니다. `https://azfuncxxx.azurewebsites.net/api/HttpTrigger1?code=X9xx9999xXXXXX9x9xxxXX==&name=cindy`
 
-    ![Screenshot of a trace information log resulting from running the function inside the function editor in Azure portal.](../images/0709.png)
+    ![함수 앱의 URL 마지막에 &name=cindy를 추가한 결과에 대해 출력된 스크린 샷](../images/0707.png)
 
-Congratulations! You have created a Function App to display a Hello message when there is an HTTP request. 
+9. 함수가 실행되면 실행된 정보가 Azure에 로그 파일로 작성됩니다. 로그를 보려면 Azure Portal의 함수 편집기로 돌아가서 **로그** 버튼을 클릭합니다.
 
-**Note**: To avoid additional costs, you can remove this resource group. Search for resource groups, click your resource group, and then click **Delete resource group**. Verify the name of the resource group and then click **Delete**. Monitor the **Notifications** to see how the delete is proceeding.
+    ![Azure Portal의 함수 편집기에서 로그 버튼과 출력된 로그가 강조된 스크린 샷](../images/0709.png)
+
+HTTP 요청이있을 때 Hello 메시지를 표시하는 함수 앱을 작성했습니다.
+
+**메모**: 추가 비용을 피하기 위해 리소스 그룹을 제거할 수 있습니다. 리소스 그룹(myRGFunction)을 검색하고 리소스 그룹 블레이드에서 **Delete resource group**을 클릭한 후 삭제 창에 리소스 그룹 이름 입력란에 리소스 그룹 이름(myRGFunction)을 입력합니다. 리소스 그룹 이름을 정확히 입력하면 하단에 **삭제** 버튼이 활성화 되며 삭제 버튼을 클릭하여 생성한 리소스들을 삭제합니다. **알람**에서 모니터링 할 수 있습니다.

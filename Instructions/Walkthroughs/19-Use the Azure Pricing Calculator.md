@@ -1,115 +1,116 @@
 ---
 wts:
-    title: '19 - Use the Azure Pricing Calculator'
-    module: 'Module 04 - Azure Pricing and Support'
+    title: '19 - Azure 가격 계산기 사용'
+    module: '모듈 04 - Azure 과금과 지원'
 ---
-# 19 - Use the Pricing Calculator
 
-In this walkthrough, we will use the Azure Pricing Calculator to generate a cost estimate for an Azure virtual machine and related network resources.
+# 19 - Azure 가격 계산기 사용
 
-Estimated time: 30 minutes
+이 연습에서는 Azure 가격 계산기를 사용하여 Azure 가상 컴퓨터 및 관련 네트워크 리소스에 대한 비용 견적을 확인합니다.
 
-# Task 1: Configure the pricing calculator
+실습 시간: 30 분
 
-In this task, we will configure an simple infrastructure in the Azure Pricing Calculator. 
+# 실습 1: Azure 가격 계산기 구성
 
-**Note**: To create an Azure Pricing Calculator estimate, this walkthrough provides example configurations for the VM and related resources. Use the example configurations or provide the Azure Pricing Calculator with details of your *actual* resource requirements instead.
+이 실습에서는 Azure 가격 계산기를 사용하여 간단한 인프라 구성에 대한 비용 견적을 확인합니다.
 
-1. In a browser, navigate to the [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/) webpage.
+**메모**: Azure 가격 계산기의 예상 수치를 만들기 위해 이 연습에서는 VM 및 관련 리소스에 대한 구성을 제공합니다. 예제 구성을 사용하거나 *실제* 리소스 요구 사항에 대한 세부 정보를 Azure 가격 계산기에 제공하십시오.
 
-2. To add details of your VM configuration, select **Virtual Machines** from the **Products** tab. Scroll down to view the virtual machine details. 
+1. 브라우저에서 <a href="https://azure.microsoft.com/ko-kr/pricing/calculator/" target="_blank"><span style="color: #0066cc;" color="#0066cc">Azure 가격 계산기</span></a> 웹페이지를 탐색합니다.
 
-3. Enter a name for your Azure Pricing Calculator estimate, and a name for your VM configuration. This walkthrough example uses **My Pricing Calculator Estimate** for the estimate, and **Windows VM** for the VM configuration.
+2. VM 구성에 대한 세부 사항을 추가하려면 **제품** 탭에서 **Virtual Machine**을 선택합니다. 가상 머신 세부 사항을 보려면 아래로 스크롤합니다. 
 
-   ![Screenshot of the vm configuration area within the Azure pricing calculator estimate webpage. The highlighted estimate name and vm configuration name indicate how to add an estimate name and a vm configuration name to an Azure pricing calculator estimate.](../images/1901.png)
+3. Azure 가격 계산기의 견적 이름과 구성할 VM 이름을 입력합니다. 견적 이름에 **My Pricing Calculator Estimate**를 사용하고 VM 이름에 **Windows VM**을 사용합니다.
 
-4. Modify the default VM configuration.
+   ![Azure 가격 계산기에서 견적 이름을 My Pricing Calculator Estimate로, VM 이름을 Windows VM으로 수정한 것이 강조 된 스크린 샷](../images/1901.png)
 
-    |Region|Operating system|Type|
-    |------|----------------|----|
-    |North Europe|Windows|(OS only)|
+4. 기본 VM 구성을 수정합니다.
+
+    | 지역 | 운영 체제 | 유형|
+    | --- | --- | --- |
+    | 한국 중부 | Windows | (OS만) |
     | | |
 
-    |Tier|Instance|
-    |----|--------|
-    |Standard|A2: 2 Core(s), 3.5 GB RAM, 135 GB Temporary storage|
+    | 계층 | 인스턴스 |
+    | --- | --- |
+    | Standard | A2: 2개 코어, 3.5GB RAM, 135GB 임시 스토리지 |
     | | |
 
-   ![Screenshot of the vm configuration area within the Azure pricing calculator estimate webpage. The highlighted examples of user inputted vm configuration property values indicate how to specify a vm configuration within an Azure pricing calculator estimate.](../images/1902.png)
+   ![Azure 가격 계산기에서 위와 같은 설정이 강조 된 스크린 샷](../images/1902.png)
 
-    **Note**: The VM instance specifications and pricing may differ from those in this example. Follow this walkthrough by choosing an instance that matches the example as closely as possible. To view details about the different VM product options, choose **Product details** from the **More info** menu on the right.
+    **메모**: VM 인스턴스 사양 및 요금은 이 예와 다를 수 있습니다. 예제와 최대한 일치하는 인스턴스를 선택하여 이 연습을 따릅니다. 다양한 VM 제품 옵션에 대한 자세한 내용을 보려면 오른쪽의 **추가 정보** 메뉴에서 **제품 정보**를 선택합니다.
 
-5. Set the **Billing Option** to **Pay as you go**.
+5. **청구 옵션**에서 **종량제**를 선택합니다.
 
-   ![Screenshot of the vm billing options area within the Azure pricing calculator estimate webpage. The highlighted pay as you go billing option indicates how to specify a billing option for a vm within an Azure pricing calculator estimate.](../images/1903.png)
+   ![Azure 가격 계산기에서 청구 옵션 섹션에 종량제가 강조 된 스크린 샷](../images/1903.png)
 
-6. In Azure, a month is defined as 730 hours. If your VM needs to be available 100 per cent of the time each month, you set the hours-per-month value to `730`. This walkthrough example requires one VM to be available 50 per cent of the time each month.
+6. Azure에서 한 달은 730시간으로 정의됩니다. VM을 매월 100% 사용할 수 있어야 하는 경우 월별 시간 값을 `730`으로 설정합니다. 이 예제에서는 VM 하나를 매월 시간의 50%를 사용합니다.
 
-    Leave the number of VMs set at `1`, and change the hours-per-month value to `365`.
+    Virtual Machine 수는 `1`로, Hours는 `365`로 설정합니다.
 
-   ![Screenshot of the vm billing options area within the Azure pricing calculator estimate webpage. The highlighted number of vm instances and hours per month options indicate how to specify the number of instances and hours per month for a vm within an Azure pricing calculator estimate.](../images/1904.png)
+   ![Azure 가격 계산기에서 Virtual Machine 수는 `1`로, Hours는 `365`의 설정이 강조 된 스크린 샷](../images/1904.png)
 
-7. In the **Managed OS Disks** pane, modify the default VM storage configuration.
+7. **Managed Disk** 섹션에서 기본 VM 스토리지 구성을 수정합니다.
 
-    |Tier|Disk size|Number of disks|Snapshot|Storage transactions|
-    |----|---------|---------------|--------|--------------------|
-    |Standard HDD|S30: 1024 GiB|1|Off|10,000|
+    | 계층 | 디스크 크기 | 디스크 개수 | 스냅샷 | Storage 트랜잭션 |
+    | --- | --- | --- | --- | --- |
+    | 표준 HDD | S30: 1024 GiB | 1 | Off | 10,000 |
 
-   ![Screenshot of the managed OS Disks options area within the Azure pricing calculator estimate webpage. The highlighted tier type, disk size, number of disks, and number of storage transactions, options indicate how to specify a storage configuration for a vm within an Azure pricing calculator estimate.](../images/1905.png)
+   ![Azure 가격 계산기에서 위와 같은 설정이 강조 된 스크린 샷](../images/1905.png)
 
-8. To add networking bandwidth to your estimate, go to the top of the Azure Pricing Calculator webpage. Select **Networking** from the product menu on the left, then choose the **Bandwidth** tile. Inside the **Bandwidth added** message dialog, select **View**.
+8. 견적에 네트워킹 대역폭을 추가하려면 Azure 가격 계산기 웹 페이지의 상단으로 이동합니다. 왼쪽의 제품 메뉴에서 **네트워킹**을 선택한 다음 **Bandwidth**를 선택합니다 **Bandwidth이(가) 추가되었습니다.** 메시지 대화 상자에서 **보기**를 클릭합니다.
 
-   ![Screenshot of the networking products area within the Azure pricing calculator webpage. The highlighted networking, add bandwidth, and view bandwidth, tiles indicate how to add and view details of a networking bandwidth configuration in an Azure pricing calculator estimate.](../images/1906.png)
+   ![Azure 가격 계산기에서 네트워킹과 Bandwidth, 그리고 Bandwidth를 클릭할 시 Bandwidth이(가) 추가되었습니다. 대화 상자가 강조 된 스크린 샷](../images/1906.png)
 
-9. Add a name for your VM bandwidth configuration. This walkthrough example uses the name **Bandwidth: Windows VM**. Modify the default bandwidth configuration by adding the following details.
+9. 대역폭 구성의 이름을 **Bandwidth: Windows VM**으로 입력하고 다음 정보를 참고하여 대역폭 구성을 수정합니다.
 
-    |Region|Zone 1 Outbound Data Transfer Amount|
-    |------|--------------------------------------|
-    |North Europe|50 GB|
+    | 지역 | 영역 2: 아시아 태평양, 일본, 호주 |
+    | --- | --- |
+    | North Europe | 50 GB |
 
-   ![Screenshot of the network bandwidth configuration area within the Azure pricing calculator estimate webpage. The highlighted examples of user inputted bandwidth property values indicate how to specify a bandwidth configuration for a vm within an Azure pricing calculator estimate.](../images/1907.png)
+   ![Azure 가격 계산기에서 수정한 Bandwidth 이름과 지역, 용량이 강조 된 스크린 샷](../images/1907.png)
 
-10. To add an Application Gateway, return to the top of the Azure Pricing Calculator webpage. From within the **Networking** product menu, choose the **Application Gateway** tile. Inside the **Application Gateway** message dialog, select **View**.
+10. 견적에 응용 프로그램 게이트웨이를 추가하려면 Azure 가격 계산기 웹 페이지의 상단으로 돌아갑니다. **네트워킹** 제품 메뉴에서 **Application Gateway**를 선택합니다. **Application Gateway이(가) 추가 되었습니다.** 메시지 대화 상자에서 **보기**를 클릭합니다.
 
-    ![Screenshot of the networking products area within the Azure pricing calculator webpage. The highlighted networking, add application gateway, and view application gateway, tiles indicate how to add and view details of an application gateway configuration in an Azure pricing calculator estimate.](../images/1908.png)
+    ![Azure 가격 계산기에서 네트워킹과 Application Gateway, 그리고 Application Gateway를 클릭할 시 Application Gateway이(가) 추가 되었습니다. 대화 상자가 강조 된 스크린 샷](../images/1908.png)
 
-11. Add a name for your Application Gateway configuration. This walkthrough uses the name **App Gateway: Windows VM**. Modify the default Application Gateway configuration by adding the following details.
+11. Application Gateway 구성의 이름을 **App Gateway: Windows VM**으로 입력하고 다음 정보를 참고하여 Application Gateway 구성을 수정합니다.
 
-    |Region|Tier|Size|
-    |------|----|----|
-    |North Europe|Basic|Small|
+    | 지역 | 계층 | 크기 |
+    | --- | --- | --- |
+    | 한국 중부 | Basic | Small |
     | | |
 
-    |Instances|Hours|
-    |-------|-------|
-    |1|365|
+    | 인스턴스 | 시간 |
+    | --- | --- |
+    | 1 | 365 |
     | | |
 
-    |Data processed|
-    |--------------|
-    |50 GB|
+    | 처리된 데이터 |
+    | --- |
+    | 50 GB |
     | | |
 
-    |Zone 1: North America, Europe|
-    |-----------------------------|
-    |50 GB|
+    | 영역 2: 아시아 태평양, 일본, 호주 |
+    | --- |
+    | 50 GB |
     | | |
 
-    ![Screenshot of the application gateway configuration area within the Azure pricing calculator estimate webpage.](../images/1909.png)
+    ![Azure 가격 계산기에서 위와 같은 설정이 강조 된 스크린 샷](../images/1909.png)
 
 
-# Task 2: Review the pricing estimate
+# 실습 2: 비용 견적 검토
 
-In this task, we will review the results of the Azure Pricing Calculator. 
+이 실습에서는 Azure 가격 계산기의 결과를 검토합니다.
 
-1. Scroll to the bottom of the Azure Pricing Calculator webpage to view your total **Estimated monthly cost**.
+1. Azure 가격 계산기 웹페이지의 맨 아래로 스크롤하여 총 **월별 예상 비용**을 확인합니다.
 
-    **Note**: Explore the various options available within the Azure Pricing Calculator. For example, this walkthrough requires you to update the currency to Euro.
+    **메모**: Azure 가격 계산기에서 사용할 수 있는 다양한 옵션을 살펴봅니다. 예를 들어 이 연습에서는 통화를 **한국 원**으로 업데이트합니다.
 
-2. Change the currency to Euro, then select **Export** to download a copy of the estimate for offline viewing in Microsoft Excel (`.xlsx`) format.
+2. 통화를 **한국 원**으로 변경 한 다음 **내보내기** 버튼을 클릭하여 Microsoft Excel (`.xlsx`) 형식으로 오프라인에서 볼 수 있는 견적 사본을 다운로드합니다.
 
-    ![Screenshot of the total estimated monthly costs within the Azure pricing calculator estimate webpage. The highlighted euro currency option indicates how to modify the currency used in an Azure pricing calculator estimate. The highlighted export option illustrates how to download a copy of an estimate for offline viewing.](../images/1910.png)
+    ![Azure 가격 계산기에서 통화와 내보내기 그리고 저장하기가 강조 된 스크린 샷](../images/1910.png)
 
-    ![Screenshot of an example Azure pricing calculator estimate in Microsoft excel.](../images/1911.png)
+    ![다운로드받은 견적서를 Microsoft Excel로 실행한 스크린 샷](../images/1911.png)
 
-Congratulations! You downloaded an estimate from the Azure Pricing Calculator.
+Azure 가격 계산기에서 견적을 구성하고 다운로드했습니다.

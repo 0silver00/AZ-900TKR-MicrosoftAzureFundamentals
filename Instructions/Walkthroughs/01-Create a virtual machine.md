@@ -1,109 +1,110 @@
 ---
 wts:
-    title: '01 - Create a virtual machine in the portal'
-    module: 'Module 02 - Core Azure Services'
+    title: '01 - Azure Portal에서 가상 머신 만들기'
+    module: '모듈 02 - Azure 핵심 서비스'
 ---
-# 01 - Create a virtual machine in the portal
 
-In this walkthrough, we will create a virtual machine in the Azure Portal, connect to the virtual machine, install the web server role and test. 
+# 01 - Azure 포털에서 가상 머신 만들기
 
-Estimated time: 45 minutes
+이 연습에서는 Azure Portal 에서 Windows 가상 머신을 만들고 가상 머신에 연결한 후 웹 서버 역할을 설치하고 테스트 합니다.
 
-**Note**: Take time during this walk-through to click and read the Informational icons. 
+실습 시간: 45 분
 
-# Task 1: Create the virtual machine
+**메모**: 이 연습 과정 중 시간을 내어 정보 아이콘을 클릭하고 읽으십시오.
 
-In this task, we will create a Windows Server 2016 Datacenter virtual machine. 
+# 실습 1: 가상 머신 만들기
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+이 실습에서는 Windows Server 2016 Datacenter 가상 머신을 만듭니다. 
 
-2. Search for **Virtual machines** and then click **+Add**.
+1. <a href="https://portal.azure.com" target="_blank"><span style="color: #0066cc;" color="#0066cc">Azure Portal</span></a>에 로그인 합니다.
 
-3. In the **Basics** tab, fill in the information. Leave the defaults for everthing else.
+2. 검색창에 **가상 머신**을 검색한 후 **+추가**를 클릭합니다.
 
-	|Settings | Values |
+3. 블레이드에 **기본 사항** 탭에서 다음을 이용하여 정보를 입력합니다. 명시되지 않은 정보는 기본 값으로 설정합니다.
+
+	| 설정 | 값 |
 	|---|---|
-	|Subscription | **Choose your subscription**|
-	|Resource group | **myRGVM** (create new) |
-	|Virtual machine name | **myVm** |
-	|Location | **(US) East US**|
-	|Image | **Windows Server 2016 Datacenter**|
-	|Administrator account username | **azureuser** |
-	|Administrator account password | **Pa$$w0rd1234**|
-	|Inbound port rules - Allow select ports | **RDP (3389)** and **HTTP (80)**|
+	| 구독 | **실습에 이용할 구독**|
+	| 리소스 그룹 | **myRGVM** (새료 만들기) |
+	| 가상 머신 이름 | **myVm** |
+	| 지역 | **(아시아 태평양)아시아 남동부** |
+	| 이미지 | **Windows Server 2016 Datacenter** |
+	| 크기 | **표준 DS2 v2**|
+	| 관리자 계정 사용자 이름 | **azureuser** |
+	| 관리자 계정 암호 | **Pa$$w0rd1234**|
+	| 인바운드 포트 규칙 - 인바운드 포트 선택 | **RDP (3389)** 와 **HTTP (80)**|
 	|||
 
-4. Move to the Management tab and the **Monitoring** section.
+4. **관리** 탭으로 이동한 후 **모니터링** 영역에서 다음과 같이 설정합니다.
 
-	|Settings | Values |
+	| 설정 | 값 |
 	|---|---|
-	Boot diagnostics | **Off**|
+	| 부트 진단 | **끄기**|
 	|||
 
-5. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
+5. 나머지는 기본 값으로 두고 페이지 하단에서 **검토 + 만들기** 버튼을 클릭합니다.
 
-6. Once Validation is passed click the **Create** button. It can take anywhere from five to seven minutes to deploy the virtual machine.
+6. 유효성 검사가 완료되면 **만들기**버튼을 클릭합니다. 가상 머신을 배포하는데 약 5~7분이 소요될 수 있습니다.
 
-7. You will receive updates on the deployment page and on the **Notifications** icon (top menu).
+7. 배포 페이지 또는 **알람**아이콘(최상위 메뉴)에서 배포상태를 업데이트 받을 수 있습니다.
 
-# Task 2: Connect to the virtual machine
+# 실습 2: 가상 머신에 연결
 
-In this task, we will connect to our new virtual machine using RDP. 
+이 실습에서는 RDP(원격 데스크톱)를 사용하여 새로 만든 가상 머신에 연결합니다. 
 
-1. Search for **myVM** and select your new virtual machine.
+1. 검색창에 새로 만든 **myVM**을 검색합니다.
 
-**Note**: You could also use the **Go to resource** link in the **Notifications**. 
+**메모**: **알림**창에서 **리소스로 이동** 링크를 사용할 수도 있습니다.
 
-2. On the virtual machine **Overview** page, click the **Connect** button.
+2. 가상 머신의 **개요** 페이지에서 **연결**버튼을 클릭합니다.
 
-    ![Screenshot of the virtual machine properties with the Connect button highlighted.](../images/0101.png)
+    ![가상 머신 속성에서 연결 버튼이 강조된 스크린 샷](../images/0101.png)
 
-    **Note**: The following directions tell you how to connect to your VM from a Windows computer. On a Mac, you need an RDP client such as this Remote Desktop Client from the Mac App Store and on Linux virtual machine you could connect directly from a bash shell using `ssh`.
+    **메모**: 다음 설정은 Windows 컴퓨터에서 VM에 연결하는 방법에 대한 지침입니다. Mac에서는 Mac App Store에서 원격 데스크톱 클라이언트와 같은 RDP 클라이언트가 필요하며 Windows 가상 머신이 아닌 Linux 가상 머신을 만든 경우 `ssh`를 시용하여 bash Shell에서 직접 연결할 수 있습니다.
 
-2. In the **Connect to virtual machine** page, keep the default options to connect with the public IP address over port 3389 and click **Download RDP File**.
+2. **가상 머신에 연결** 페이지에서 IP 주소와 포트 번호를 기본 설정으로 놔둔 후 **RDP 파일 다운로드**를 클릭합니다.
 
-3. **Open** the downloaded RDP file and click **Connect** when prompted. 
+3. 다운로드 된 RDP 파일을 **열기**를 하고 **연결(N)**을 클릭합니다.
 
-    ![Screenshot of the virtual machine properties with the Connect button highlighted. ](../images/0102.png)
+    ![RDP 연결창에서 연결 버튼이 강조된 스크린 샷](../images/0102.png)
 
-4. In the **Windows Security** window, select **More choices** and then **Use a different account**. Provide the username (.\azureuser) and the password (Pa$$w0rd1234). Click **OK** to connect.
+4. **Windows 보안** 창에서 **다른 옵션 선택**에 있는 **다른 계정 사용**을 선택합니다. 앞서 입력한 사용자 이름(.\azureuser)과 암호(Pa$$w0rd1234)를 입력한 후 **확인**버튼을 클릭하여 연결합니다.
 
-    ![Screenshot of the Windows security dialogue with use a different account selected and the username azure user entered and a password.](../images/0103.png)
+    ![Windows 보안 창에서 다른 계정 사용과 사용자 이름, 암호를 입력하는 설정이 강조된 스크린 샷](../images/0103.png)
 
 
-5. You may receive a certificate warning during the sign-in process. Click **Yes** or to create the connection and connect to your deployed VM. You should connect successfully.
+5. 로그인 과정에서 인증서 경고가 표시 될 수 있습니다. **예**를 클릭하여 가상 머신에 연결합니다.
 
-    ![Screenshot of the Certificate warning dialogue informing the user of an untrusted certificate, with the Yes button highlighted. ](../images/0104.png)
+    ![인증서 경고창에서 예 버튼이 강조된 스크린 샷](../images/0104.png)
 
-Congratulations! You have deployed and connected to a Windows Server virtual machine in Azure
+Azure에서 Windows Server 가상 머신을 배포하고 연결하는데 성공했습니다.
 
-# Task 3: Install the web server role and test
+# 실습 3: 웹 서버 역할 설치 및 테스트
 
-In this task, install the Web Server role on the server and ensure the default IIS welcome page can be displayed.
+이 실습에서는 웹 서버 역할을 설치하고 IIS welcome 페이지가 정상적으로 뜨는지 확인합니다.
 
-1. Open up a PowerShell command prompt on the virtual machine, by clicking the **Start** button, typing **PowerShell** right clicking **Windows PowerShell** in the menu and selecting **Run as administrator**
+1. 연결된 가상 머신에서 PowerShell을 실행합니다. **시작** 버튼을 클릭하고 **PowerShell**을 검색한 후 Windows PowerShell에서 마우스 오른쪽 버튼을 클릭하여 **Run as administrator**를 선택합니다.
 
-    ![Screenshot of the virtual machine desktop with the start button clicked and PowerShell selected with run as an administrator highlighted.](../images/0105.png)
+    ![시작에서 Windows PowerShell의 Run as administrator 버튼이 강조된 스크린 샷](../images/0105.png)
 
-2. Install the **Web-Server** feature in the virtual machine by running the following command in the PowerShell command prompt. You can copy and paste this command.
+2. PowerShell 프롬프트에서 다음 명령어를 실행하여 가상 머신에 **Web-Server** 기능일 설치합니다. 이 명령어를 복사하여 붙여넣을 수 있습니다.
 
     ```PowerShell
     Install-WindowsFeature -name Web-Server -IncludeManagementTools
     ```
   
-3. When completed there will be a prompt stating **Success** with a value **True**. You do not need to restart the virtual machine to complete the installation. Close the RDP connection to the VM.
+3. 설치가 완료되면 **Success** 설정이 **True**로 출력됩니다. 웹 서버 역할의 설치가 완료되었습니다. 가상 머신에 대한 RDP 연결을 닫습니다.
 
-    ![Screenshot of the windows PowerShell command prompt with the command Install-WindowsFeature -name Web-Server -IncludeManagementTools successfully completed and output stating it was successful.](../images/0106.png)
+    ![Windows PowerShell 프롬프트에서 Install-WindowsFeature -name Web-Server -IncludeManagementTools 명령어가 실행에 성공한 스크린 샷](../images/0106.png)
 
-4. Back in the portal, select the VM and in the **Overview** pane of the VM, use the **Click to copy** button to the right of the public IP address to copy it and paste it into a browser tab.
+4. Azure Portal로 돌아와서 가상 머신을 선택하고 가상 머신의 **개요** 블레이드에서 **공용 IP 주소**에 나타나는 **클립보드로 복사**를 클릭하여 IP를 복사합니다.
 
-    ![Screenshot of the Azure portal virtual machine property pane with the IP address copied.](../images/0107.png)
+    ![가상 머신에서 공용 IP 주소와 복사가 강조된 스크린 샷](../images/0107.png)
 
-5. The default IIS Web Server welcome page will open, and is available to connect to publicly via this IP address, or via the fully qualified domain name.
+5. 브라우저에 새로운 탭에서 복사한 IP로 연결하여 IIS welcome 페이지가 정상적으로 뜨는지 확인합니다.
 
-    ![Screenshot of the default IIS web server welcome page being accessed via the public ip address in a web browser.](../images/0108.png)
+    ![정상적으로 IIS welcome 페이지가 뜬 스크린 샷](../images/0108.png)
 
-Congratulations! You have created a web server that can be connected to publicly via this IP address, or via the fully qualified domain name. If you had a web page to host you could deploy those source files to the virtual machine and host them for public access on the deployed virtual machine.
+이 IP 주소 또는 정규화 된 Domain name을 통해 어디서든 연결할 수 있는 웹서버를 구축하였습니다. 호스팅 할 웹페이지가 있는 경우 해당 소스파일을 가상 머신에 배포하고 배포 된 가상 머신에서 웹 서비스를 호스팅 할 수 있습니다.
 
-
-**Note**: To avoid additional costs, you can remove this resource group. Search for resource groups, click your resource group, and then click **Delete resource group**. Verify the name of the resource group and then click **Delete**. Monitor the **Notifications** to see how the delete is proceeding.
+**메모**: 추가 비용을 피하기 위해 리소스 그룹을 제거할 수 있습니다. 리소스 그룹(myRGVM)을 검색하고 리소스 그룹 블레이드에서 **Delete resource group**을 클릭한 후 삭제 창에 리소스 그룹 이름 입력란에 리소스 그룹 이름(myRGVM)을 입력합니다. 리소스 그룹 이름을 정확히 입력하면 하단에 **삭제** 버튼이 활성화 되며 삭제 버튼을 클릭하여 생성한 리소스들을 삭제합니다. **알람**에서 모니터링 할 수 있습니다.
