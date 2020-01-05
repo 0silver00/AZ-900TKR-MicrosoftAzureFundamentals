@@ -1,7 +1,6 @@
 # AZ-900T00와 AZ-900T01: Microsoft Azure 기초 (Microsoft Azure Fundamentals)
 
 - **[HTML 형식의 연습으로 연결](https://microsoftlearningkoreanlab.github.io/AZ-900TKR-MicrosoftAzureFundamentals/)**
-- **[Word 형식의 최신 연습 다운로드](../../releases/latest)**
 - **MCT 입니까?** - [MCT 용 GitHub 사용자 가이드] (https://microsoftlearning.github.io/MCT-User-Guide/)를 확인하십시오.
 - **Lab 지침을 수동으로 작성해야합니까?** - 지침은 [MicrosoftLearning/Docker-Build](https://github.com/MicrosoftLearning/Docker-Build) 리포지토리에 있습니다.
 
