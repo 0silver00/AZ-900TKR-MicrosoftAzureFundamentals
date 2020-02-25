@@ -12,7 +12,7 @@ wts:
 
 # 실습 1: 보안 센터 액세스
 
-1. 브라우저에서 <a href="https://docs.microsoft.com/ko-kr/microsoft-365/compliance/offering-home" target="_blank"><span style="color: #0066cc;" color="#0066cc">Microsoft Microsoft 규정 준수 제품</span></a>에 액세스합니다.
+1. 브라우저에서 <a href="https://docs.microsoft.com/ko-kr/microsoft-365/compliance/offering-home/?wt.mc_id=AID2463800_QSG_SCL_361864&ocid=AID2463800_QSG_SCL_361864&utm_medium=Owned%20%26%20Operated&utm_campaign=FY20_APAC_Dev%20Community_CFT_Internal%20Social" target="_blank"><span style="color: #0066cc;" color="#0066cc">Microsoft Microsoft 규정 준수 제품</span></a>에 액세스합니다.
 
 2. 오퍼링은 **전역**, **미국 정부**, **산업**, **국가별**로 그룹화 되어있습니다.
 
@@ -26,7 +26,7 @@ wts:
 
 # 실습 2: 서비스 신뢰 포털(STP) 액세스
 
-1. 브라우저에서 <a href="https://servicetrust.microsoft.com" target="_blank"><span style="color: #0066cc;" color="#0066cc">서비스 신뢰 포털(STP)</span></a>에 액세스합니다.
+1. 브라우저에서 <a href="https://servicetrust.microsoft.com/?wt.mc_id=AID2463800_QSG_SCL_361864&ocid=AID2463800_QSG_SCL_361864&utm_medium=Owned%20%26%20Operated&utm_campaign=FY20_APAC_Dev%20Community_CFT_Internal%20Social" target="_blank"><span style="color: #0066cc;" color="#0066cc">서비스 신뢰 포털(STP)</span></a>에 액세스합니다.
 
 2. **감사 보고서** 섹션을 확인합니다. 이 섹션에는 다양한 Microsoft 클라우드 서비스에 대한 독립적인 감사 보고서가 있습니다.
 
@@ -40,7 +40,7 @@ wts:
 
 1. 준수 관리자를 이용하여 Microsoft 클라우드 서비스에 대한 위험 평가를 쉽게 수행 할 수 있습니다. 준수 관리자를 사용하여 구현에서 보고에 이르기까지 조직의 준수 활동을 관리할 수 있습니다. 준수 관리자를 사용하려면 로그인해야 합니다.
 
-2. 대신 <a href="https://servicetrust.microsoft.com/Documents/TrustDocuments" target="_blank"><span style="color: #0066cc;" color="#0066cc">규정 가이드</span></a>에 액세스합니다.
+2. 대신 <a href="https://servicetrust.microsoft.com/Documents/TrustDocuments/?wt.mc_id=AID2463800_QSG_SCL_361864&ocid=AID2463800_QSG_SCL_361864&utm_medium=Owned%20%26%20Operated&utm_campaign=FY20_APAC_Dev%20Community_CFT_Internal%20Social" target="_blank"><span style="color: #0066cc;" color="#0066cc">규정 가이드</span></a>에 액세스합니다.
 
 3. 시간이 있으면 관심있는 것을 검토합니다.
 
